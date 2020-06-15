@@ -4,7 +4,7 @@ A simple tic tac toe App built using flutter.
 
 # 📱Screenshots
 
-<img src="https://github.com/afrozshaikh25/ttt/blob/master/illustration/Frame%201.png" alt="s1" width="900">
+<img src="https://github.com/afrozshaikh25/ttt/blob/master/illustration/Frame%201.png" alt="s1" width="400">
 
 
 
@@ -36,6 +36,5 @@ flutter run
 <a href="https://github.com/afrozshaikh25/ncovid19/blob/master/LICENSE">Apache License 2.0</a>
 
 # Thank Note
-<b>STAY SAFE. STAY HOME</b>
 Star this Repo to show some ❤️ & Support
 ### Gracias Amigo
