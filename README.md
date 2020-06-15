@@ -4,7 +4,7 @@ A simple tic tac toe App built using flutter.
 
 # 📱Screenshots
 
-<img src="https://github.com/afrozshaikh25/ttt/blob/master/illustration/Frame%201.png" alt="s1" width="700">
+<img src="https://github.com/afrozshaikh25/ttt/blob/master/illustration/Frame%201.png" alt="s1" width="900">
 
 
 
