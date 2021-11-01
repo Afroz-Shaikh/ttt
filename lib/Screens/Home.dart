@@ -150,22 +150,23 @@ _popupDialog(BuildContext context) {
         return AlertDialog(
           backgroundColor: Colors.black,
           title: Text(
-            '⛔Ahoy!!',
+            '⛔Warning',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             textAlign: TextAlign.center,
           ),
           content: Text(
-            'This bot is yet to be built, till then get a friend',
+            'Not Yet developed',
             style: TextStyle(color: Colors.white),
             textAlign: TextAlign.center,
           ),
           actions: <Widget>[
-            FlatButton(
+            MaterialButton(
               onPressed: () => Navigator.of(context).pop(),
               child: Center(
                   child: Text(
                 'Alright then!',
                 textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white),
               )),
             ),
           ],
