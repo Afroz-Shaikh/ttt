@@ -5,6 +5,7 @@ import 'package:ttt/Screens/Home.dart';
 import 'package:ttt/Screens/Botgame.dart';
 import 'package:ttt/Screens/FriendGame.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:ttt/Screens/settings.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,8 +28,9 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(),
-        'bot':(context) => BotGame(),
-        'friend':(context) => FriendGame(),
+        'bot': (context) => BotGame(),
+        'friend': (context) => FriendGame(),
+        'setting': (context) => Setting(),
       },
     );
   }
