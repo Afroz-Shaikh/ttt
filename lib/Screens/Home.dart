@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-//import 'package:ttt/Screens/dialog.dart';
-//import 'package:flutter/services.dart';
+import 'package:ttt/Screens/dialog.dart';
+import 'package:flutter/services.dart';
 import 'package:ttt/Screens/settings.dart';
 
 class HomePage extends StatelessWidget {
@@ -31,26 +31,21 @@ class HomePage extends StatelessWidget {
 //                        size: 50,
                           color: Colors.white,
                         ),
-                        onPressed: () {
-                          Navigator.pushNamed(context, 'Setting');
-                        },
+                        onPressed: () {},
                       ),
                       IconButton(
-                          icon: GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Setting()),
-                              );
-                            },
-                            child: Icon(
-                              Icons.settings,
-                              //                          size: 50,
-                              color: Colors.white,
-                            ),
+                          icon: Icon(
+                            Icons.settings,
+//                          size: 50,
+                            color: Colors.white,
                           ),
-                          onPressed: () {}),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Setting()),
+                            );
+                          }),
 //                  IconButton(icon: FaIcon(FontAwesomeIcons.app), onPressed: (){})
                     ],
                   ),
@@ -83,7 +78,7 @@ class HomePage extends StatelessWidget {
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.all(20.0),
-                        child: MaterialButton(
+                        child: RaisedButton(
 //                          disabledColor: Colors.grey,
 
                           splashColor: Colors.blue,
@@ -111,7 +106,7 @@ class HomePage extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(20.0),
-                        child: MaterialButton(
+                        child: RaisedButton(
                           splashColor: Colors.red,
                           textColor: Colors.white,
                           color: Colors.blue,
@@ -155,23 +150,22 @@ _popupDialog(BuildContext context) {
         return AlertDialog(
           backgroundColor: Colors.black,
           title: Text(
-            '⛔Warning',
+            '⛔Ahoy!!',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
             textAlign: TextAlign.center,
           ),
           content: Text(
-            'Not Yet developed',
+            'This bot is yet to be built, till then get a friend',
             style: TextStyle(color: Colors.white),
             textAlign: TextAlign.center,
           ),
           actions: <Widget>[
-            MaterialButton(
+            FlatButton(
               onPressed: () => Navigator.of(context).pop(),
               child: Center(
                   child: Text(
                 'Alright then!',
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.white),
               )),
             ),
           ],
