@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:ttt/Screens/dialog.dart';
-import 'package:flutter/services.dart';
+//import 'package:ttt/Screens/dialog.dart';
+//import 'package:flutter/services.dart';
+import 'package:ttt/Screens/settings.dart';
 
 class HomePage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,25 +12,13 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Container(
           color: Color(0xff262626),
-          height: MediaQuery
-              .of(context)
-              .size
-              .height,
-          width: MediaQuery
-              .of(context)
-              .size
-              .width,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           child: Column(
             children: <Widget>[
               Container(
-                height: MediaQuery
-                    .of(context)
-                    .size
-                    .height * 0.09,
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width,
+                height: MediaQuery.of(context).size.height * 0.09,
+                width: MediaQuery.of(context).size.width,
 //                color: Colors.red,
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
@@ -43,13 +31,24 @@ class HomePage extends StatelessWidget {
 //                        size: 50,
                           color: Colors.white,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, 'Setting');
+                        },
                       ),
                       IconButton(
-                          icon: Icon(
-                            Icons.settings,
-//                          size: 50,
-                            color: Colors.white,
+                          icon: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Setting()),
+                              );
+                            },
+                            child: Icon(
+                              Icons.settings,
+                              //                          size: 50,
+                              color: Colors.white,
+                            ),
                           ),
                           onPressed: () {}),
 //                  IconButton(icon: FaIcon(FontAwesomeIcons.app), onPressed: (){})
@@ -59,14 +58,8 @@ class HomePage extends StatelessWidget {
               ),
               Container(
 //                color: Colors.white,
-                height: MediaQuery
-                    .of(context)
-                    .size
-                    .height * 0.4,
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width,
+                height: MediaQuery.of(context).size.height * 0.4,
+                width: MediaQuery.of(context).size.width,
                 child: Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(left: 30, top: 140),
@@ -74,7 +67,8 @@ class HomePage extends StatelessWidget {
                     child: Text(
                       'Start',
                       textScaleFactor: 1.0,
-                      style: TextStyle(fontWeight: FontWeight.bold,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
                           fontSize: 70,
                           color: Colors.white),
                     ),
@@ -83,19 +77,13 @@ class HomePage extends StatelessWidget {
               ),
               Container(
 //                color: Colors.greenAccent,
-                  height: MediaQuery
-                      .of(context)
-                      .size
-                      .height * 0.45,
-                  width: MediaQuery
-                      .of(context)
-                      .size
-                      .width,
+                  height: MediaQuery.of(context).size.height * 0.45,
+                  width: MediaQuery.of(context).size.width,
                   child: Column(
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.all(20.0),
-                        child: RaisedButton(
+                        child: MaterialButton(
 //                          disabledColor: Colors.grey,
 
                           splashColor: Colors.blue,
@@ -103,18 +91,19 @@ class HomePage extends StatelessWidget {
                           color: Colors.red,
                           child: Padding(
                             padding: const EdgeInsets.all(15.0),
-                            child: Row(mainAxisAlignment: MainAxisAlignment
-                                .spaceBetween,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
-
-                                Text('Play with bot', textScaleFactor: 1.0,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold),),
+                                Text(
+                                  'Play with bot',
+                                  textScaleFactor: 1.0,
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
                                 FaIcon(FontAwesomeIcons.robot)
-                              ],),
+                              ],
+                            ),
                           ),
-                          onPressed: () => _popupDialog(context)
-                          ,
+                          onPressed: () => _popupDialog(context),
                           shape: new RoundedRectangleBorder(
                             borderRadius: new BorderRadius.circular(10.0),
                           ),
@@ -122,22 +111,23 @@ class HomePage extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(20.0),
-                        child: RaisedButton(
-
+                        child: MaterialButton(
                           splashColor: Colors.red,
                           textColor: Colors.white,
                           color: Colors.blue,
                           child: Padding(
                             padding: const EdgeInsets.all(15.0),
-                            child: Row(mainAxisAlignment: MainAxisAlignment
-                                .spaceBetween,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
-
-                                Text('Play with Friend', textScaleFactor: 1.0,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold),),
+                                Text(
+                                  'Play with Friend',
+                                  textScaleFactor: 1.0,
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
                                 FaIcon(FontAwesomeIcons.peopleArrows)
-                              ],),
+                              ],
+                            ),
                           ),
                           onPressed: () {
                             Navigator.pushNamed(context, 'friend');
@@ -148,30 +138,43 @@ class HomePage extends StatelessWidget {
                         ),
                       )
                     ],
-                  )
-              ),
+                  )),
             ],
           ),
         ),
       ),
     );
   }
-
-
 }
 
 _popupDialog(BuildContext context) {
-  showDialog(barrierDismissible: false,
+  showDialog(
+      barrierDismissible: false,
       context: context,
       builder: (context) {
-        return AlertDialog(backgroundColor: Colors.black,title: Text(
-            '⛔Ahoy!!',style:TextStyle(fontWeight: FontWeight.bold,color: Colors.white) ,textAlign: TextAlign.center,),
-          content: Text('This bot is yet to be built, till then get a friend',style:TextStyle(color: Colors.white) ,textAlign: TextAlign.center,),
+        return AlertDialog(
+          backgroundColor: Colors.black,
+          title: Text(
+            '⛔Warning',
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+            textAlign: TextAlign.center,
+          ),
+          content: Text(
+            'Not Yet developed',
+            style: TextStyle(color: Colors.white),
+            textAlign: TextAlign.center,
+          ),
           actions: <Widget>[
-
-            FlatButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: Center(child: Text('Alright then!',textAlign: TextAlign.center,)),),
-          ],);
+            MaterialButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Center(
+                  child: Text(
+                'Alright then!',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white),
+              )),
+            ),
+          ],
+        );
       });
 }
